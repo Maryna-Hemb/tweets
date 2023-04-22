@@ -1,9 +1,4 @@
 import { lazy } from 'react';
-import { GlobalStyle } from './GlobalStyle';
-import { Layout } from './Layout.styled';
-import { TitleH1, TitleH2 } from './App.styled';
-import { useDispatch, useSelector } from 'react-redux';
-import { useEffect } from 'react';
 import SharedLayout from './sharedLayot/SharedLayout';
 import { Route, Routes } from 'react-router-dom';
 

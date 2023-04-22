@@ -5,6 +5,9 @@ const List = styled.ul`
   font-size: 16px;
 `;
 const Item = styled.li`
+  width: 380px;
+  height: 460px;
+  border: 1px solid red;
   list-style: none;
 
   &:not(:last-child) {

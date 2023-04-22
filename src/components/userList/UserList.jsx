@@ -13,7 +13,7 @@ const UserList = ({ users }) => {
           <p>{user}</p>
           <p>{tweets}</p>
           <p>{followers}</p>
-          <p>{avatar}</p>
+          <img src={avatar} alt="avatar" width={62} />
           {/* </Link> */}
         </Item>
       ))}
