@@ -17,7 +17,7 @@ const Item = styled.li`
   width: 379px;
   height: 460px;
   border: 1px solid #000000;
-  box-shadow: -2.5777px 6.87386px 20.6216px rgba(0, 0, 0, 0.23);
+  box-shadow: -2.5777px 6.87386px 20.6216px rgba(0, 0, 0, 0.24);
   border-radius: 20px;
 
   background-image: url(${BgImage}),
