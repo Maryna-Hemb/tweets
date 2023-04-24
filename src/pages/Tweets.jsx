@@ -6,7 +6,7 @@ import { useLocation } from 'react-router-dom';
 import ReturnButton from '../components/returnButton/ReturnButton';
 
 const Tweets = () => {
-  const [users, setUsers] = useState(null);
+  const [users, setUsers] = useState([]);
   const [status, setStatus] = useState('idle');
   const [showLoadMore, setShowLoadMore] = useState(false);
   const [page, setPage] = useState(1);
@@ -21,10 +21,7 @@ const Tweets = () => {
         const getUserInf = await fetcUsers(page);
         setStatus('resolved');
         setShowLoadMore(true);
-        if (!users) {
-          setUsers(getUserInf);
-          return;
-        }
+
         if (Math.ceil(getUserInf.length < 3)) {
           setShowLoadMore(false);
         }
