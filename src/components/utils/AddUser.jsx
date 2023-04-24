@@ -1,6 +1,6 @@
 import { Formik, Field, Form } from 'formik';
-import { addUser } from '../service/Api';
-import { useState, useEffect } from 'react';
+import { addUser } from '../../service/Api';
+import { useState } from 'react';
 
 const initialValues = {
   user: '',
@@ -12,8 +12,6 @@ const initialValues = {
 const AddUser = () => {
   const [user, setUser] = useState(initialValues);
   const hendleSubmit = (values, { resetForm }) => {
-    // console.log({ ...values });
-
     async function postUser() {
       try {
         const postUserInf = await addUser({ ...values });
