@@ -1,7 +1,7 @@
 import { List, Item } from './UserList.styled';
 import { ListItem } from '../listItem/ListItem';
 
-const UserList = ({ users, onFollow }) => {
+export const UserList = ({ users, onFollow }) => {
   return (
     <List>
       {users.map(user => (
@@ -12,4 +12,3 @@ const UserList = ({ users, onFollow }) => {
     </List>
   );
 };
-export default UserList;

@@ -2,12 +2,12 @@ import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 
 const ButtonContainer = styled.div`
-  padding: 0px 16px;
+  padding-left: 16px;
 `;
 const ButtonLink = styled(Link)`
   display: inline-flex;
   align-items: center;
-  padding: 8px 10px;
+  padding: 17px 18px;
   background-color: #5736a3;
   font-size: 14px;
   color: #ebd8ff;

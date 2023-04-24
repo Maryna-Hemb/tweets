@@ -3,7 +3,7 @@ import { NavLink } from 'react-router-dom';
 
 const Container = styled.div`
   margin: 0 auto;
-  padding: 0 25px;
+  padding: 0;
 `;
 const Header = styled.header`
   display: flex;
@@ -31,7 +31,7 @@ const Link = styled(NavLink)`
 `;
 
 const Main = styled.main`
-  padding: 16px 16px;
+  padding: 16px 5px;
 `;
 
 export { Container, Header, Link, Main };

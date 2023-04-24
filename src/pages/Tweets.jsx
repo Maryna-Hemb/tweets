@@ -1,17 +1,18 @@
 import { useState, useEffect, useRef } from 'react';
 import { fetcUsers } from '../service/Api';
-import UserList from '../components/userList/UserList';
+import { UserList } from '../components/userList/UserList';
 import { BtnLoadMore } from '../components/btnLoadMore/BtnLoadMore';
 import { useLocation } from 'react-router-dom';
-import ReturnButton from '../components/returnButton/ReturnButton';
+import { ReturnButton } from '../components/returnButton/ReturnButton';
+import { Filter } from '../components/filter/Filter';
 
 const Tweets = () => {
   const [users, setUsers] = useState([]);
   const [status, setStatus] = useState('idle');
   const [showLoadMore, setShowLoadMore] = useState(false);
   const [page, setPage] = useState(1);
-  const [onFollow, setOnFollow] = useState(null);
-
+  const [onFollow, setOnFollow] = useState([]);
+  const [filter, setFilter] = useState('show all');
   const location = useLocation();
   const backLinkLocationRef = useRef(location.state?.from ?? '/');
 
@@ -37,20 +38,50 @@ const Tweets = () => {
     if (localStorage.getItem('onFollow')) {
       setOnFollow(JSON.parse(localStorage.getItem('onFollow')));
     }
-  }, []);
+  }, [filter]);
 
   const loadMore = () => {
     setPage(page => page + 1);
   };
 
+  const handleChange = event => {
+    setFilter(event.target.value);
+  };
+  const visibleUsers = () => {
+    if (filter === 'show all') {
+      return users;
+    }
+    if (filter === 'follow') {
+      return users.filter(user => {
+        return !onFollow.some(onFollow => {
+          return user.id === onFollow.id;
+        });
+      });
+    }
+    if (filter === 'following') {
+      return onFollow;
+    }
+  };
+
   return (
     <>
-      <div>
+      <div
+        style={{
+          display: 'flex',
+          justifyContent: 'space-between',
+          paddingLeft: 15,
+          paddingRight: 15,
+        }}
+      >
         <ReturnButton locationBack={backLinkLocationRef.current} />
+        <Filter filter={filter} handleChange={handleChange} />
       </div>
       {status === 'idle' && <div>Loading...</div>}
-      {status === 'resolved' && <UserList users={users} onFollow={onFollow} />}
+      {status === 'resolved' && (
+        <UserList users={visibleUsers(filter)} onFollow={onFollow} />
+      )}
       {status === 'resolved' &&
+        visibleUsers(filter).length > 0 &&
         (showLoadMore ? (
           <BtnLoadMore onClick={loadMore} />
         ) : (

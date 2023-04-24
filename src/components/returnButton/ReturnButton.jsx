@@ -1,7 +1,7 @@
 import { BsArrowLeftShort } from 'react-icons/bs';
 import { ButtonContainer, ButtonLink } from './ReturnButton.styled';
 
-const ReturnButton = ({ locationBack }) => {
+export const ReturnButton = ({ locationBack }) => {
   return (
     <ButtonContainer>
       <ButtonLink to={locationBack}>
@@ -11,4 +11,3 @@ const ReturnButton = ({ locationBack }) => {
     </ButtonContainer>
   );
 };
-export default ReturnButton;

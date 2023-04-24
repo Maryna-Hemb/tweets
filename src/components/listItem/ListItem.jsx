@@ -13,7 +13,8 @@ export const ListItem = ({ item, onFollow }) => {
   const { id, tweets, followers, avatar, user } = item;
   const [totallFollowers, setTotallFollowers] = useState(followers);
   const [isFollowed, setIsFollowed] = useState(false);
-  const kFollowers = totallFollowers
+
+  const kFollowers = Number(totallFollowers)
     .toString()
     .replace(/\B(?=(\d{3})+(?!\d))/g, ',');
 
@@ -42,11 +43,14 @@ export const ListItem = ({ item, onFollow }) => {
           'onFollow',
           JSON.stringify([
             ...JSON.parse(localStorage.getItem('onFollow')),
-            { id, user },
+            { id, user, followers, avatar },
           ])
         );
       } else {
-        localStorage.setItem('onFollow', JSON.stringify([{ id, user }]));
+        localStorage.setItem(
+          'onFollow',
+          JSON.stringify([{ id, user, followers, avatar }])
+        );
       }
     }
   };
@@ -65,6 +69,7 @@ export const ListItem = ({ item, onFollow }) => {
     isFollowed
       ? setTotallFollowers(Number(totallFollowers) - 1)
       : setTotallFollowers(Number(totallFollowers) + 1);
+    return totallFollowers;
   };
 
   return (
