@@ -14,8 +14,7 @@ const SectionHome = styled.section`
 `;
 
 const Text = styled.p`
-  min-width: 380px;
-  max-width: 900px;
+  width: 80%;
   margin: 0;
   font-size: 28px;
   font-weight: 600;
