@@ -13,6 +13,7 @@ const Tweets = () => {
   const [page, setPage] = useState(1);
   const [onFollow, setOnFollow] = useState([]);
   const [filter, setFilter] = useState('show all');
+
   const location = useLocation();
   const backLinkLocationRef = useRef(location.state?.from ?? '/');
 
