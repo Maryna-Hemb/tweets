@@ -1,4 +1,4 @@
-# Following tweets - test-task for front-end developer
+# Following tweets - Pet-project
 
 This App gives an opportunity to choose and follow tweets. It is provided to
 show skills in front-end development. Rendering data according to API requests,

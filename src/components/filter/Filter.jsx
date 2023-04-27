@@ -5,7 +5,19 @@ import Select from '@mui/material/Select';
 
 export const Filter = ({ filter, handleChange }) => {
   return (
-    <Box sx={{ maxWidth: 130, backgroundColor: '#5cd3a8', borderRadius: 2 }}>
+    <Box
+      sx={{
+        maxWidth: 130,
+        backgroundColor: '#5cd3a8',
+        borderRadius: 2,
+        '&:hover': {
+          background: '#ebd8ff',
+        },
+        '&:focus': {
+          background: '#ebd8ff',
+        },
+      }}
+    >
       <FormControl fullWidth>
         <Select id="demo-simple-select" value={filter} onChange={handleChange}>
           <MenuItem value={'show all'}>show all</MenuItem>

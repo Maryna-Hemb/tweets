@@ -74,6 +74,12 @@ const ButtonFollow = styled.button`
   background-color: #ebd8ff;
   box-shadow: 0px 3.43693px 3.43693px rgba(0, 0, 0, 0.25);
   border-radius: 10px;
+  cursor: pointer;
+  &:hover,
+  &:focus {
+    background-color: #5cd3a8;
+    color: #000;
+  }
 `;
 
 export { List, Item, LogoImg, AvatarImg, AvatarFrame, Text, ButtonFollow };
